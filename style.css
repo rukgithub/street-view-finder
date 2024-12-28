@@ -1,0 +1,174 @@
+:root {
+    --primary-color: #0056b3;
+    --hover-color: #003d82;
+    --bg-color: #f8f9fa;
+    --shadow-sm: 0 2px 15px rgba(0,0,0,0.1);
+    --shadow-lg: 0 4px 20px rgba(0,0,0,0.15);
+    --transition: all 0.3s ease;
+}
+
+body {
+    background-color: var(--bg-color);
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    padding: 0 1rem;
+}
+
+/* Search Box Styling */
+.search-box {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.search-box:focus-within {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+}
+
+.input-group {
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Image Container Styling */
+.image-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+#streetview {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: var(--shadow-lg);
+    transition: var(--transition);
+}
+
+.image-controls {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    display: flex;
+    gap: 0.5rem;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: var(--transition);
+}
+
+.image-wrapper:hover .image-controls {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.image-controls .btn {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    backdrop-filter: blur(5px);
+    transition: var(--transition);
+}
+
+.image-controls .btn:hover {
+    background: white;
+    transform: scale(1.1);
+}
+
+.image-info {
+    background: white;
+    padding: 1.2rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+    animation: slideUp 0.3s ease;
+}
+
+/* Button Styling */
+.btn-primary {
+    background-color: var(--primary-color);
+    border: none;
+    padding: 0.8rem 2rem;
+    transition: var(--transition);
+}
+
+.btn-primary:hover {
+    background-color: var(--hover-color);
+    transform: translateY(-2px);
+}
+
+/* Loading Animation */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#loading {
+    padding: 2rem;
+}
+
+.spinner-border {
+    width: 3rem;
+    height: 3rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 0.5rem;
+    }
+    
+    .search-box {
+        padding: 1rem;
+    }
+    
+    .input-group {
+        flex-direction: column;
+    }
+    
+    .btn-primary {
+        margin-top: 0.5rem;
+        width: 100%;
+    }
+    
+    .image-controls {
+        bottom: 0.5rem;
+        right: 0.5rem;
+    }
+}
+
+/* Cache Info Styling */
+#cacheInfo {
+    background: #e9ecef;
+    padding: 0.5rem;
+    border-radius: 4px;
+    margin-top: 0.5rem;
+}
+
+/* Error Styling */
+.alert {
+    padding: 1rem;
+    border-radius: 8px;
+    animation: slideUp 0.3s ease;
+}
+
+.alert i {
+    margin-right: 0.5rem;
+} 
